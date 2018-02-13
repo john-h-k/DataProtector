@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProtector", "DataProtector\DataProtector.csproj", "{ABABB22A-3682-4F23-8F3E-0AA80E20DC2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABABB22A-3682-4F23-8F3E-0AA80E20DC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABABB22A-3682-4F23-8F3E-0AA80E20DC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABABB22A-3682-4F23-8F3E-0AA80E20DC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABABB22A-3682-4F23-8F3E-0AA80E20DC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D573253-0E38-465E-BFC7-ADE6666DB064}
+	EndGlobalSection
+EndGlobal
