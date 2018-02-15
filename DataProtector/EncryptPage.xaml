@@ -15,8 +15,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button HorizontalAlignment="Left" Content="Return" Margin="0,0,0,348" Grid.Column="0" Width="47" Click="Return"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Enter the data to be encrypted:" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
+        <Button HorizontalAlignment="Left" Content="Return" Margin="0,0,0,338" Grid.Column="0" Width="47" Click="Return"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Enter the data to be encrypted:" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
         <TextBox x:Name="Data_Box" HorizontalAlignment="Left" Height="23" Margin="10,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
         <CheckBox x:Name="Is_Using_Entropy" Content="Use entropy" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Grid.Row="0"/>
         <TextBlock HorizontalAlignment="Left" Height="49" Margin="10,96,0,0" TextWrapping="Wrap" Text="Warning: Not using entropy allows malicious programs and users on this account to access this data" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
