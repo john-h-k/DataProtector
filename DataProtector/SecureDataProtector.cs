@@ -40,7 +40,7 @@ namespace DataProtector
                 BinWriter.Write(entropy);
             }
 
-            using (var BinWriter = new BinaryWriter(File.Create(FilePath)))
+            using (var BinWriter = new BinaryWriter(File.Open(FilePath, FileMode.Append)))
             {
                 BinWriter.Write(encryptedData);
             }
@@ -62,6 +62,7 @@ namespace DataProtector
             var data = new byte[Length];
             using (var BinReader = new BinaryReader(File.Open(FilePath, FileMode.Open)))
             {
+                BinReader.ReadInt32();
                 data = BinReader.ReadBytes((int)Length);
             }
 

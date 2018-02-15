@@ -112,10 +112,11 @@ namespace DataProtector
                 return;
             }
 
-            /*
+            
             int ID = 0;
             var rng = new Random();
             ID = rng.Next(int.MaxValue);
+            /*
             Loop:
             foreach (var item in SettingsPage.IDArray)
             {
@@ -125,6 +126,7 @@ namespace DataProtector
                     goto Loop;
                 }
             }
+            */
             using (var BinWriter = new BinaryWriter(File.Create(filePath)))
             {
                 BinWriter.Write(ID);
@@ -133,7 +135,7 @@ namespace DataProtector
             Console.WriteLine(String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}", Environment.UserName, ID.ToString()));
             entropyPath = DecryptPage.EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}.dat", Environment.UserName, ID.ToString());
             Console.WriteLine(entropyPath);
-            */
+            
             _LastLength = SecureDataProtector.ProtectDataToFile(Encoding.UTF8.GetBytes(text), filePath, entropyPath);
             Application.Current.MainWindow.Content = new EncryptionSuccesfulPage();
         }

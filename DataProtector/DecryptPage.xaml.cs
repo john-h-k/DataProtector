@@ -38,7 +38,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
-                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\data.bin", Environment.UserName);
+                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\", Environment.UserName);
                 //Directory.CreateDirectory(EntropyPath);
             }
         }
@@ -46,6 +46,12 @@ namespace DataProtector
         private void Decrypt(object sender, RoutedEventArgs e)
         {
             var entropy = new byte[16];
+            int ID;
+            using (var BinReader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+            {
+                ID = BinReader.ReadInt32();
+                EntropyPath += ID.ToString() + ".dat";
+            }
             using (var BinReader = new BinaryReader(File.Open(EntropyPath, FileMode.Open)))
             {
                 entropy = BinReader.ReadBytes(16);
@@ -97,7 +103,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
-                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\data.bin", Environment.UserName);
+                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}", Environment.UserName);
             }
             else
             {

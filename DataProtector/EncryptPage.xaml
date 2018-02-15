@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DataProtector"
       mc:Ignorable="d"
-      Title="MainPage" Height="375" Width="563">
+      Title="Encrypt" Height="365" Width="563">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
