@@ -1,0 +1,35 @@
+﻿<Page x:Class="DataProtector.EncryptPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DataProtector"
+      mc:Ignorable="d"
+      Title="MainPage" Height="375" Width="563">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button HorizontalAlignment="Left" Content="Return" Margin="0,0,0,348" Grid.Column="0" Width="47" Click="Return"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Enter the data to be encrypted:" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
+        <TextBox x:Name="Data_Box" HorizontalAlignment="Left" Height="23" Margin="10,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
+        <CheckBox x:Name="Is_Using_Entropy" Content="Use entropy" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Grid.Row="0"/>
+        <TextBlock HorizontalAlignment="Left" Height="49" Margin="10,96,0,0" TextWrapping="Wrap" Text="Warning: Not using entropy allows malicious programs and users on this account to access this data" VerticalAlignment="Top" Width="168" Grid.Row="0"/>
+        <CheckBox x:Name="Is_Data_User_Specific" Content="Only current user can access data" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="200" Height="16" Grid.Row="0"/>
+        <CheckBox x:Name="Is_Entropy_External" Content="Store entropy in custom location" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="200" Click="On_Entropy_State_Changed" Grid.Row="0"/>
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="10,30,0,0" TextWrapping="Wrap" Text="Choose the file the encrypted data should be stored in:" VerticalAlignment="Top" Width="173" Grid.Column="1" Grid.Row="0"/>
+        <TextBox x:Name="Data_File_Path" HorizontalAlignment="Left" Height="20" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1" Grid.Row="0" IsReadOnly="True"/>
+        <Button Content="Browse" HorizontalAlignment="Left" Margin="265,66,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Browse_File" Grid.Row="0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="225,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0"/>
+        <TextBlock x:Name="Entropy_Browse_Label" HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" Text="Choose the file the entropy should be stored in:" VerticalAlignment="Top" Grid.Column="1" Width="250" Grid.Row="0"/>
+        <TextBox x:Name="Entropy_File_Path" HorizontalAlignment="Left" Height="20" Margin="10,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Grid.Column="1" Grid.Row="0" IsReadOnly="True"/>
+        <Button x:Name="Entropy_Browse_Button" Content="Browse" HorizontalAlignment="Left" Margin="265,138,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Browse_Entropy_File" Grid.Row="0"/>
+        <Button Content="Encrypt" HorizontalAlignment="Left" Height="20" Margin="10,191,0,0" VerticalAlignment="Top" Width="75" Click="Encrypt" Grid.Row="0"/>
+        <Label x:Name="Error_Box" HorizontalAlignment="Left" Height="43" Margin="10,216,0,0" VerticalAlignment="Top" Width="191" Grid.Row="0"/>
+    </Grid>
+</Page>
