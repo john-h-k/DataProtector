@@ -13,8 +13,8 @@ namespace DataProtector
         public static byte[] GenerateEntropy()
         {
             var entropy = new byte[16];
-            var rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(entropy);
+            new RNGCryptoServiceProvider().GetBytes(entropy);
+
             return entropy;
         }
 
@@ -33,7 +33,7 @@ namespace DataProtector
             rng.GetBytes(entropy);
 
             var encryptedData = ProtectedData.Protect(Data, entropy, DataProtectionScope.CurrentUser);
-            long Length = encryptedData.Length;
+            long Length = encryptedData.Length;      
 
             using (var BinWriter = new BinaryWriter(File.Create(EntropyFilePath)))
             {
@@ -69,9 +69,6 @@ namespace DataProtector
             return ProtectedData.Unprotect(data, Entropy, DataProtectionScope.CurrentUser);
         }
 
-        public static byte[] ExtractEntropyFromFile(string FilePath, long Length)
-        {
-            throw new NotImplementedException();
-        }
+        public static byte[] ExtractEntropyFromFile(string FilePath, long Length) => throw new NotImplementedException();
     }
 }

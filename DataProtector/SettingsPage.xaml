@@ -9,6 +9,6 @@
       Title="SettingsPage">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Height="36" Margin="118,128,0,0" TextWrapping="Wrap" Text="WORK IN PROGRESS" VerticalAlignment="Top" Width="58"/>
     </Grid>
 </Page>
