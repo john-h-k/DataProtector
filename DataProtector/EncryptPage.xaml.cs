@@ -116,7 +116,7 @@ namespace DataProtector
             int ID = 0;
             var rng = new Random();
             ID = rng.Next(int.MaxValue);
-            /*
+            
             Loop:
             foreach (var item in SettingsPage.IDArray)
             {
@@ -126,7 +126,7 @@ namespace DataProtector
                     goto Loop;
                 }
             }
-            */
+            
             using (var BinWriter = new BinaryWriter(File.Create(filePath)))
             {
                 BinWriter.Write(ID);

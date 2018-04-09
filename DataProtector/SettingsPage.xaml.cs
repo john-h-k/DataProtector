@@ -22,7 +22,7 @@ namespace DataProtector
     public partial class SettingsPage : Page
     {
 
-        private static int[] IDArray;
+        public static int[] IDArray;
 
         public SettingsPage()
         {
