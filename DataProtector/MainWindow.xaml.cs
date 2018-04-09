@@ -23,6 +23,7 @@ namespace DataProtector
     {
         public MainWindow()
         {
+            
             InitializeComponent();
             this.Content = new SelectionPage();
         }

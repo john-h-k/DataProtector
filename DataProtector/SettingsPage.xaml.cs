@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,28 @@ namespace DataProtector
     public partial class SettingsPage : Page
     {
 
-        public static int[] IDArray;
+        private static int[] IDArray;
 
         public SettingsPage()
         {
             InitializeComponent();
         }
+
+        static SettingsPage() 
+        {
+            string p = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            Console.WriteLine(p);
+            var files = Directory.GetFiles(p + @"\DataProtector");
+            IDArray = new int[files.Length];
+            for (var i = 0; i < files.Length; i++)
+            {
+                var num = files[i].Substring(0, files[i].Length - 4);
+                var a = num.Split('\\');
+                num = a[a.Length - 1];
+                IDArray[i] = int.Parse(num);
+            }
+        }
+
+
     }
 }
