@@ -31,8 +31,9 @@ namespace DataProtector
 
         static SettingsPage() 
         {
+
+            // Initiliase IDArray, an array of all numbers unavailable as file names
             string p = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            Console.WriteLine(p);
             var files = Directory.GetFiles(p + @"\DataProtector");
             IDArray = new int[files.Length];
             for (var i = 0; i < files.Length; i++)
@@ -41,6 +42,16 @@ namespace DataProtector
                 var a = num.Split('\\');
                 num = a[a.Length - 1];
                 IDArray[i] = int.Parse(num);
+            }
+
+            // Initiliase settings
+            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DataProtector\\settings.ini"))
+            {
+                File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DataProtector\\settings.ini");
+            }
+            else
+            {
+
             }
         }
 

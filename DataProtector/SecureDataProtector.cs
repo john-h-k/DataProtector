@@ -23,6 +23,7 @@ namespace DataProtector
             var entropy = new byte[length];
             var rng = new RNGCryptoServiceProvider();
             rng.GetBytes(entropy);
+
             return entropy;
         }
 

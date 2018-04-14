@@ -144,7 +144,7 @@ namespace DataProtector
         {
             Microsoft.Win32.OpenFileDialog fileBrowser = new Microsoft.Win32.OpenFileDialog
             {
-                InitialDirectory = @"C:\"
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
             };
             bool? result = fileBrowser.ShowDialog();
             if (result == true)
