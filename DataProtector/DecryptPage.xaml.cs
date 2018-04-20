@@ -65,7 +65,7 @@ namespace DataProtector
         {
             Microsoft.Win32.OpenFileDialog fileBrowser = new Microsoft.Win32.OpenFileDialog
             {
-                InitialDirectory = @"C:\"
+                InitialDirectory = Environment.GetFolder(Environment.SpecialFolder.MyComputer)
             };
             bool? result = fileBrowser.ShowDialog();
             if (result == true)
@@ -79,7 +79,7 @@ namespace DataProtector
         {
             Microsoft.Win32.OpenFileDialog fileBrowser = new Microsoft.Win32.OpenFileDialog
             {
-                InitialDirectory = @"C:\"
+                InitialDirectory = Environment.GetFolder(Environment.SpecialFolder.MyComputer)
             };
             bool? result = fileBrowser.ShowDialog();
             if (result == true)
@@ -103,7 +103,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
-                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}", Environment.UserName);
+                EntropyPath = String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\{0}", Environment.UserName);
             }
             else
             {
