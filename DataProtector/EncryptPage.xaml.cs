@@ -133,8 +133,6 @@ namespace DataProtector
             }
             
             entropyPath = DecryptPage.EntropyPath = String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\{0}", ID.ToString());
-            Console.WriteLine(entropyPath);
-            
             _LastLength = SecureDataProtector.ProtectDataToFile(Encoding.UTF8.GetBytes(text), filePath, entropyPath);
             Application.Current.MainWindow.Content = new EncryptionSuccesfulPage();
         }
