@@ -38,7 +38,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
-                EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\", Environment.UserName);
+                EntropyPath = Environment.GetFolder(Environment.SpecialFolder.MyComputer) + "@\Documents";
                 //Directory.CreateDirectory(EntropyPath);
             }
         }
