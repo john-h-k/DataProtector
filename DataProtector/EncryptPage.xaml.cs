@@ -46,7 +46,7 @@ namespace DataProtector
             Is_Using_Entropy.IsChecked = isEntropyExternal;
             Is_Data_User_Specific.IsChecked = true;
             Is_Entropy_External.IsChecked = false;
-            entropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\data.bin", Environment.UserName);
+            entropyPath = String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\data.bin", Environment.UserName);
             var a = new object();
             var b = new RoutedEventArgs();
             On_Entropy_State_Changed(a, b);
@@ -56,7 +56,7 @@ namespace DataProtector
         {
             Microsoft.Win32.OpenFileDialog fileBrowser = new Microsoft.Win32.OpenFileDialog
             {
-                InitialDirectory = @"C:\"
+                InitialDirectory = Environment.GetFolder(Environment.SpecialFolder.MyComputer);
             };
             bool? result = fileBrowser.ShowDialog();
             if (result == true)
@@ -75,7 +75,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
-                String.Format(@"C:\Users\{0}\Documents\DataProtector\data.bin", Environment.UserName);
+                String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\data.bin", Environment.UserName);
             }
             else
             {
@@ -115,9 +115,10 @@ namespace DataProtector
             
             int ID = 0;
             var rng = new Random();
-            ID = rng.Next(int.MaxValue);
             
             Loop:
+            ID = rng.Next(int.MaxValue);
+            
             foreach (var item in SettingsPage.IDArray)
             {
                 if (ID == item)
@@ -132,8 +133,7 @@ namespace DataProtector
                 BinWriter.Write(ID);
             }
             
-            Console.WriteLine(String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}", Environment.UserName, ID.ToString()));
-            entropyPath = DecryptPage.EntropyPath = String.Format(@"C:\Users\{0}\Documents\DataProtector\{1}.dat", Environment.UserName, ID.ToString());
+            entropyPath = DecryptPage.EntropyPath = String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\{0}", ID.ToString());
             Console.WriteLine(entropyPath);
             
             _LastLength = SecureDataProtector.ProtectDataToFile(Encoding.UTF8.GetBytes(text), filePath, entropyPath);
