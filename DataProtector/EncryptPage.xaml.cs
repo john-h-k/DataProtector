@@ -75,6 +75,7 @@ namespace DataProtector
                 Entropy_Browse_Button.IsEnabled = false;
                 Entropy_File_Path.Opacity = 0.5;
                 Entropy_File_Path.IsEnabled = false;
+                entropyPath = String.Format(Environment.GetFolder(Environment.SpecialFolder.MyComputer) + @"\DataProtector\"); //TODO
             }
             else
             {
